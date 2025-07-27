@@ -1,0 +1,34 @@
+/* helper */
+.container {
+	border: var(--border);
+	border-radius: var(--border-radius);
+	position: relative;
+	overflow: visible;
+	padding: var(--gap-medium);
+	background-color: var(--color-base00);
+}
+
+.container:hover {
+	border-color: var(--color-base0B);
+}
+
+.container > span:first-of-type {
+	position: absolute;
+	bottom: 100%;
+	transform: translateY(50%);
+	line-height: 1em;
+	padding: var(--gap-small);
+	background-color: var(--color-base00);
+	max-width: 75%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.container:hover > span:first-of-type {
+	color: var(--color-base05);
+}
+
+.hidden {
+	display: none !important;
+}

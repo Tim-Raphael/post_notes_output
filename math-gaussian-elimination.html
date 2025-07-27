@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Describes a method of solving systems of linear equations in which the coefficient matrix is brought into it upper triangular form, which allows us to solve the equation by back substitution.">
+    <title>Gaussian Elimination | post_notes</title>
+    <meta name="description" content="Describes a method of solving systems of linear equations in which the coefficient matrix is brought into it upper triangular form, which allows us to solve the equation by back substitution.">
+
+   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>">
+ 
+    <link rel="stylesheet" href="./default_styles/css/styles.css">
+    <link rel="stylesheet" href="./default_styles/css/helpers.css">
+</head>
+
+<body>
+    <main>
+        <aside>
+        
+
+<nav>
+    <span>navigation</span>
+    <span>Press "/" to search.</span><br>
+    <span>Press "j" or "k" to scroll down or up.</span><br>
+    <br>
+    <span>Click on the tags to expand them.</span><br>
+    <ul>
+        
+        
+<li>
+    <label for="area">area</label>
+    <input id="area" type="checkbox"></input>
+    <div>
+    
+    
+    <ul>
+        
+        
+<li>
+    <label for="hobby">hobby</label>
+    <input id="hobby" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./programming-algorithm-fuzzy-search.html">programming-algorithm-fuzzy-search.html</a>
+        </li>
+        
+        <li>
+            <a href="./index.html">index.html</a>
+        </li>
+        
+        <li>
+            <a href="./project-post-notes.html">project-post-notes.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="study">study</label>
+    <input id="study" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./modeling-petri-nets.html">modeling-petri-nets.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-matrix-operation.html">math-matrix-operation.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-data-structures.html">programming-data-structures.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-function.html">math-function.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-sigma-notation.html">math-sigma-notation.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-process.html">operating-system-process.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-active-waiting.html">operating-system-active-waiting.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-dma.html">computer-architecture-dma.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-algorithm.html">programming-algorithm.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system.html">operating-system.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-algorithm-fuzzy-search.html">programming-algorithm-fuzzy-search.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-development.html">programming-development.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-gaussian-elimination.html">math-gaussian-elimination.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-deadlock.html">operating-system-deadlock.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-propositional-logic.html">math-propositional-logic.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-control-unit.html">computer-architecture-control-unit.html</a>
+        </li>
+        
+        <li>
+            <a href="./compsci-number-system.html">compsci-number-system.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-swapping.html">operating-system-swapping.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-process-critical-section.html">operating-system-process-critical-section.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-mmu.html">operating-system-mmu.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-paging.html">operating-system-paging.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-cisc.html">computer-architecture-cisc.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-process-state.html">operating-system-process-state.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-language-rust-traits.html">programming-language-rust-traits.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-m-bit.html">operating-system-m-bit.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-context-switching.html">operating-system-context-switching.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-network.html">computer-network.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-shared-memory.html">operating-system-shared-memory.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-context.html">operating-system-context.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-data-types.html">programming-data-types.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-complete-induction.html">math-complete-induction.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-replacing-pages.html">operating-system-replacing-pages.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-scheduling.html">operating-system-scheduling.html</a>
+        </li>
+        
+        <li>
+            <a href="./modeling-resource-allocation-graph.html">modeling-resource-allocation-graph.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-fork.html">operating-system-fork.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-set.html">math-set.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-risc.html">computer-architecture-risc.html</a>
+        </li>
+        
+        <li>
+            <a href="./compsci-twos-compliment.html">compsci-twos-compliment.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-relation.html">math-relation.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-dispatcher.html">operating-system-dispatcher.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-multimedia-periphery.html">computer-architecture-multimedia-periphery.html</a>
+        </li>
+        
+        <li>
+            <a href="./modeling-graph.html">modeling-graph.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-von-neumann.html">computer-architecture-von-neumann.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-r-bit.html">operating-system-r-bit.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-present-absent-bit.html">operating-system-present-absent-bit.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-assembly.html">programming-assembly.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-tsl.html">operating-system-tsl.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-register.html">computer-architecture-register.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-parallel-computing.html">computer-architecture-parallel-computing.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-bus.html">computer-architecture-bus.html</a>
+        </li>
+        
+        <li>
+            <a href="./modeling-unified-modeling-language.html">modeling-unified-modeling-language.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-cartesian-product.html">math-cartesian-product.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-second-chance.html">operating-system-second-chance.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+    </ul>
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="project">project</label>
+    <input id="project" type="checkbox"></input>
+    <div>
+    
+    
+    <ul>
+        
+        
+<li>
+    <label for="exam-prep">exam-prep</label>
+    <input id="exam-prep" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./computer-architecture-parallel-computing.html">computer-architecture-parallel-computing.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <ul>
+        
+        
+<li>
+    <label for="chips">chips</label>
+    <input id="chips" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./operating-system-tsl.html">operating-system-tsl.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-development.html">programming-development.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-control-unit.html">computer-architecture-control-unit.html</a>
+        </li>
+        
+        <li>
+            <a href="./modeling-graph.html">modeling-graph.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-shared-memory.html">operating-system-shared-memory.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-propositional-logic.html">math-propositional-logic.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-set.html">math-set.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-register.html">computer-architecture-register.html</a>
+        </li>
+        
+        <li>
+            <a href="./modeling-resource-allocation-graph.html">modeling-resource-allocation-graph.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-cisc.html">computer-architecture-cisc.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-gaussian-elimination.html">math-gaussian-elimination.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-context-switching.html">operating-system-context-switching.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-deadlock.html">operating-system-deadlock.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-function.html">math-function.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-sigma-notation.html">math-sigma-notation.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-dma.html">computer-architecture-dma.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-network.html">computer-network.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-complete-induction.html">math-complete-induction.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system.html">operating-system.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-multimedia-periphery.html">computer-architecture-multimedia-periphery.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-process.html">operating-system-process.html</a>
+        </li>
+        
+        <li>
+            <a href="./compsci-number-system.html">compsci-number-system.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-relation.html">math-relation.html</a>
+        </li>
+        
+        <li>
+            <a href="./compsci-twos-compliment.html">compsci-twos-compliment.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-assembly.html">programming-assembly.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-risc.html">computer-architecture-risc.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-scheduling.html">operating-system-scheduling.html</a>
+        </li>
+        
+        <li>
+            <a href="./modeling-petri-nets.html">modeling-petri-nets.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-von-neumann.html">computer-architecture-von-neumann.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-bus.html">computer-architecture-bus.html</a>
+        </li>
+        
+        <li>
+            <a href="./modeling-unified-modeling-language.html">modeling-unified-modeling-language.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <ul>
+        
+        
+<li>
+    <label for="todo">todo</label>
+    <input id="todo" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./math-gaussian-elimination.html">math-gaussian-elimination.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-propositional-logic.html">math-propositional-logic.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-matrix-operation.html">math-matrix-operation.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-cisc.html">computer-architecture-cisc.html</a>
+        </li>
+        
+        <li>
+            <a href="./compsci-number-system.html">compsci-number-system.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-dma.html">computer-architecture-dma.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-set.html">math-set.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-complete-induction.html">math-complete-induction.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+    </ul>
+    
+    <div>
+</li>
+
+        
+    </ul>
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="post-notes">post-notes</label>
+    <input id="post-notes" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./index.html">index.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-algorithm-fuzzy-search.html">programming-algorithm-fuzzy-search.html</a>
+        </li>
+        
+        <li>
+            <a href="./project-post-notes.html">project-post-notes.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <ul>
+        
+        
+<li>
+    <label for="todo">todo</label>
+    <input id="todo" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./project-post-notes.html">project-post-notes.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+    </ul>
+    
+    <div>
+</li>
+
+        
+    </ul>
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="resource">resource</label>
+    <input id="resource" type="checkbox"></input>
+    <div>
+    
+    
+    <ul>
+        
+        
+<li>
+    <label for="compsci">compsci</label>
+    <input id="compsci" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./compsci-number-system.html">compsci-number-system.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-assembly.html">programming-assembly.html</a>
+        </li>
+        
+        <li>
+            <a href="./compsci-twos-compliment.html">compsci-twos-compliment.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="computer-architecture">computer-architecture</label>
+    <input id="computer-architecture" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./computer-architecture-bus.html">computer-architecture-bus.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-dma.html">computer-architecture-dma.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-parallel-computing.html">computer-architecture-parallel-computing.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-von-neumann.html">computer-architecture-von-neumann.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <ul>
+        
+        
+<li>
+    <label for="cpu">cpu</label>
+    <input id="cpu" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./computer-architecture-cisc.html">computer-architecture-cisc.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-control-unit.html">computer-architecture-control-unit.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-risc.html">computer-architecture-risc.html</a>
+        </li>
+        
+        <li>
+            <a href="./computer-architecture-register.html">computer-architecture-register.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+    </ul>
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="computer-network">computer-network</label>
+    <input id="computer-network" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./computer-network.html">computer-network.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="math">math</label>
+    <input id="math" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./compsci-number-system.html">compsci-number-system.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-sigma-notation.html">math-sigma-notation.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-complete-induction.html">math-complete-induction.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-relation.html">math-relation.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-propositional-logic.html">math-propositional-logic.html</a>
+        </li>
+        
+        <li>
+            <a href="./compsci-twos-compliment.html">compsci-twos-compliment.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <ul>
+        
+        
+<li>
+    <label for="de-morgan">de-morgan</label>
+    <input id="de-morgan" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./math-propositional-logic.html">math-propositional-logic.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-set.html">math-set.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="function">function</label>
+    <input id="function" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./math-gaussian-elimination.html">math-gaussian-elimination.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-function.html">math-function.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="matrix">matrix</label>
+    <input id="matrix" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./math-matrix-operation.html">math-matrix-operation.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-gaussian-elimination.html">math-gaussian-elimination.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="set-theory">set-theory</label>
+    <input id="set-theory" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./math-set.html">math-set.html</a>
+        </li>
+        
+        <li>
+            <a href="./math-cartesian-product.html">math-cartesian-product.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+    </ul>
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="modeling">modeling</label>
+    <input id="modeling" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./modeling-petri-nets.html">modeling-petri-nets.html</a>
+        </li>
+        
+        <li>
+            <a href="./modeling-unified-modeling-language.html">modeling-unified-modeling-language.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <ul>
+        
+        
+<li>
+    <label for="graph">graph</label>
+    <input id="graph" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./modeling-resource-allocation-graph.html">modeling-resource-allocation-graph.html</a>
+        </li>
+        
+        <li>
+            <a href="./modeling-graph.html">modeling-graph.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+    </ul>
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="operating-system">operating-system</label>
+    <input id="operating-system" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./computer-architecture-multimedia-periphery.html">computer-architecture-multimedia-periphery.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-scheduling.html">operating-system-scheduling.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-dispatcher.html">operating-system-dispatcher.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system.html">operating-system.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-deadlock.html">operating-system-deadlock.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-active-waiting.html">operating-system-active-waiting.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <ul>
+        
+        
+<li>
+    <label for="assembly">assembly</label>
+    <input id="assembly" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./operating-system-tsl.html">operating-system-tsl.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="context">context</label>
+    <input id="context" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./operating-system-context-switching.html">operating-system-context-switching.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-context.html">operating-system-context.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="memory-management">memory-management</label>
+    <input id="memory-management" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./operating-system-replacing-pages.html">operating-system-replacing-pages.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-present-absent-bit.html">operating-system-present-absent-bit.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-m-bit.html">operating-system-m-bit.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-second-chance.html">operating-system-second-chance.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-mmu.html">operating-system-mmu.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-paging.html">operating-system-paging.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-shared-memory.html">operating-system-shared-memory.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-r-bit.html">operating-system-r-bit.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-swapping.html">operating-system-swapping.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="process">process</label>
+    <input id="process" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./operating-system-process-critical-section.html">operating-system-process-critical-section.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-process.html">operating-system-process.html</a>
+        </li>
+        
+        <li>
+            <a href="./operating-system-process-state.html">operating-system-process-state.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="system-call">system-call</label>
+    <input id="system-call" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./operating-system-fork.html">operating-system-fork.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+    </ul>
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="operating-sytem">operating-sytem</label>
+    <input id="operating-sytem" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./operating-system-process.html">operating-system-process.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="programming">programming</label>
+    <input id="programming" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./programming-assembly.html">programming-assembly.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-data-types.html">programming-data-types.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-data-structures.html">programming-data-structures.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <ul>
+        
+        
+<li>
+    <label for="algorithm">algorithm</label>
+    <input id="algorithm" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./operating-system-second-chance.html">operating-system-second-chance.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-algorithm.html">programming-algorithm.html</a>
+        </li>
+        
+        <li>
+            <a href="./programming-algorithm-fuzzy-search.html">programming-algorithm-fuzzy-search.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="development">development</label>
+    <input id="development" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./programming-development.html">programming-development.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+    </ul>
+    
+    <div>
+</li>
+
+        
+        
+<li>
+    <label for="programming-language">programming-language</label>
+    <input id="programming-language" type="checkbox"></input>
+    <div>
+    
+    
+    <ul>
+        
+        
+<li>
+    <label for="rust">rust</label>
+    <input id="rust" type="checkbox"></input>
+    <div>
+    
+    <ul>
+        
+        <li>
+            <a href="./programming-language-rust-traits.html">programming-language-rust-traits.html</a>
+        </li>
+        
+    </ul>
+
+    
+    
+    <div>
+</li>
+
+        
+    </ul>
+    
+    <div>
+</li>
+
+        
+    </ul>
+    
+    <div>
+</li>
+
+        
+    </ul>
+</nav>
+
+        </aside>
+
+        <article>
+            <span>math-gaussian-elimination.html</span>
+
+            <div>
+                <p>
+                    <span>
+                        <br>
+                        * created: 2025-05-29T10:40
+                        <br>
+                         
+                        * modified: 2025-06-24T18:28
+                        <br>
+                        
+                    </span>
+                </p>
+
+                <span>title</span><br>
+                <p>Gaussian Elimination</p>
+
+                <span>description</span><br>
+                <p>Describes a method of solving systems of linear equations in which the coefficient matrix is brought into it upper triangular form, which allows us to solve the equation by back substitution.</p>
+
+                
+            </div>
+
+            <h1>Solving for multiple unknowns</h1>
+<p>We use Gaussian Elimination when trying to the value an unknown variable could be (sometimes could be multiple) in a line's equation system like this, for example:
+<span data-math-style="display"> 
+\begin{aligned}
+&amp; \mathrm{(I)} \quad x_{1} + x_{2} = 60 \\
+&amp; \mathrm{(II)} \quad x_{1} - 2x_{2}  = 0 \\
+\end{aligned}
+</span></p>
+<hr />
+<h2>Coefficient Matrix</h2>
+<p>The matrix of all coefficients :). Going with the previous example, the coefficient matrix would look like this:
+<span data-math-style="display">
+\begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; -2
+\end{bmatrix}
+</span></p>
+<hr />
+<h3>Extended Coefficient Matrix</h3>
+<p>The extended coefficient matrix includes the resulting values is denoted like this:
+<span data-math-style="display">
+\left[
+\begin{array}{cc|c}
+1 &amp; 1 &amp; 60 \\
+1 &amp; -2 &amp; 0
+\end{array}
+\right]
+</span></p>
+<hr />
+<h2>Row Echelon Form (REF)</h2>
+<p>In German: Zeilenstufenform</p>
+<p>Allowed operations:</p>
+<ol>
+<li>Swap two rows</li>
+<li>Multiply a row by a non-zero constant</li>
+<li>Add or subtract another row or the multiple of another row</li>
+</ol>
+<h2>Solving a linear equation.</h2>
+<p>The following example illustrates how we can use to solve for our unknown variables.</p>
+<h3>Defining the linear equation system.</h3>
+<p>Anna and Ben have picked 60 apples together. Anna has twice as many apples as Ben. How many apples do Anna and Ben each have? Set up a corresponding system of linear equations and solve it using the Gaussian elimination method.</p>
+<p>Given is:
+<span data-math-style="display"> 
+\begin{aligned}
+&amp; \mathrm{(I)} \quad x_{1} + x_{2} = 60 \\
+&amp; \mathrm{(II)} \quad x_{1} - 2x_{2}  = 0 \\
+\end{aligned}
+</span></p>
+<h4>Solution:</h4>
+<p>We subtracted <span data-math-style="inline">\mathrm{(I)}</span> from <span data-math-style="inline">\mathrm{(II)}</span>:
+$$
+\begin{aligned}</p>
+<p>&amp;&amp; (x_{1} + x_{2}) - (x_{1} - 2x_{2}) &amp;= 60 - 0 \
+&amp;\Leftrightarrow &amp;3x_{2} &amp;= 60 ; | \div 3 \
+&amp;\Leftrightarrow &amp;x_{2} &amp;= 20 \
+\</p>
+<p>&amp;&amp; x_{1} = 2x_{2} = 2 \times 20 &amp;= 40 \
+\end{aligned}
+$$</p>
+<h1>The solution to the linear equation system is:
+$$
+\begin{bmatrix}
+x_{1} \
+x_{2}
+\end{bmatrix}</h1>
+<p>\begin{bmatrix}
+40 \
+20
+\end{bmatrix}
+$$</p>
+<h3>Solving with the shorthand matrix notation</h3>
+<p>This is especially useful if we have complex operation we don't want to write out by hand.</p>
+<p>Given are the following linear equations systems over <span data-math-style="inline">\mathbb{R}</span>:
+<span data-math-style="display"> 
+\begin{align}
+&amp; \mathrm{(I)} &amp; 2x_{1} + 3x_{2} - x_{3} &amp; = 7 \\
+&amp; \mathrm{(II)} &amp; 4x_{1} - 2x_{2} + 5x_{3} &amp; = 12 \\
+&amp; \mathrm{(III)} &amp; x_{1} + x_{2} + 3x_{3} &amp; = 5 
+\end{align}
+</span></p>
+<p>This is the coefficient matrix:
+<span data-math-style="display">
+\begin{bmatrix}
+2 &amp; 3 &amp; -1 \\
+4 &amp; -2 &amp; 5 \\
+1 &amp; 1 &amp; 3 
+\end{bmatrix}
+</span></p>
+<p>We first need to define the extended coefficient matrix:
+<span data-math-style="display">
+B :=
+\left[
+\begin{array}{ccc|c}
+2 &amp; 3 &amp; -1 &amp; 7 \\
+4 &amp; -2 &amp; 5 &amp; 12 \\
+1 &amp; 1 &amp; 3 &amp; 5 
+\end{array}
+\right]
+</span></p>
+<p>Now we need to convert the extended coefficient matrix into its row echelon form. This is done by cleverly transforming the matrix:
+$$
+\begin{align}</p>
+<p>&amp; \left[
+\begin{array}{ccc|c}
+2 &amp; 3 &amp; -1 &amp; 7 \
+4 &amp; -2 &amp; 5 &amp; 12 \
+1 &amp; 1 &amp; 3 &amp; 5
+\end{array}
+\right]</p>
+<p>\xrightarrow{R_{\mathrm{II}} \to R_{\mathrm{II}} - 2R_{\mathrm{I}}, ; R_{\mathrm{III}} \to R_{III} - 0.5R_{\mathrm{I}}}
+\</p>
+<p>&amp; \left[
+\begin{array}{ccc|c}
+2 &amp; 3 &amp; -1 &amp; 7 \
+0 &amp; -8 &amp; 7 &amp; -2 \
+0 &amp; -0.5 &amp; 3.5 &amp; 1.5
+\end{array}
+\right]</p>
+<p>\xrightarrow{R_{\mathrm{III} } \to R_{\mathrm{III}} - \frac{0.5}{8} R_{\mathrm{II}}}
+\</p>
+<p>&amp; \left[
+\begin{array}{ccc|c}
+2 &amp; 3 &amp; -1 &amp; 7 \
+0 &amp; -8 &amp; 7 &amp; -2 \
+0 &amp; 0 &amp; 3.0625 &amp; 1.625
+\end{array}
+\right]</p>
+<p>\end{align}
+$$</p>
+<p>We can derive <span data-math-style="inline">\begin{bmatrix} x_{1} &amp; x_{2} &amp; x_{3} \end{bmatrix}</span> through back substitution:
+<span data-math-style="display">
+\begin{align}
+3.0625 x_{3} &amp; = 1.625 \; | \div 3.0625 \\
+x_{3} &amp; \approx  0.531 
+\end{align}
+</span></p>
+<p>We can now substitute <span data-math-style="inline">x_{3}</span> in <span data-math-style="inline">R_{\mathrm{II}}</span> to solve for <span data-math-style="inline">x_{2}</span>:
+<span data-math-style="display">
+\begin{align}
+-8x_{2} + 7 \cdot 0.531 &amp; = -2 \\
+-8x_{2} + 3.717 &amp; = -2 &amp; | -3.717 \\
+-11.717x_{2} &amp; = -5.717 &amp; | \div 11.171 \\
+x_{2} &amp; \approx 0.488
+\end{align}
+</span></p>
+<p>Finally, we solve for <span data-math-style="inline">x_1</span> by substituting <span data-math-style="inline">x_{2}, x_{3}</span> in <span data-math-style="inline">R_{I}</span>:
+<span data-math-style="display"> 
+\begin{align}
+2x_{1} + 3 \cdot 0.488 + -1 \cdot 0.531 &amp; = 7 \\
+2x_{1} + 1.464 - 0.531 &amp; = 7 \\
+2x_{1} + 0.933 &amp; = 7 &amp; | -0.933\\
+2x_{1} &amp; = 6.067 &amp; | \div 2\\
+x_{1} &amp; = 3.0335 \\
+\end{align}
+</span></p>
+<p>Therefor:
+<span data-math-style="display">
+\begin{bmatrix}
+x_{1} \\ x_{2} \\ x_{3}
+\end{bmatrix}
+\approx
+\begin{bmatrix}
+0.531 \\ 0.488 \\ 3.0335
+\end{bmatrix}
+</span></p>
+
+        </article>
+
+    </main>
+
+    <footer>
+    <div>
+        <div>
+            <a href="./index.html">index.html</a>
+        </div>
+        <div>
+            <a href="./legal-notice.html">legal-notice.html</a>
+        </div>
+    </div>
+    <div>
+        <div id="date-container"></div>
+        <div id="clock-container"></div>
+    </div>
+</footer>
+
+<script type="module" src="./js/date-time.js"></script>
+
+    <!-- SEARCH -->
+<div id="search-container">
+    <div>
+        <div class="container" id="search-output"></div>
+        <div class="container" id="search-preview"></div>
+    </div>
+    <input type="text" id="search-input"></input>
+</div>
+
+<link rel="stylesheet" href="./css/search.css">
+<script type="module" src="./js/search.js"></script>
+<!-- END SEARCH -->
+
+    <script type="module" src="./js/controls.js"></script>
+
+    <!-- MATH-SYNTAX -->
+<link rel="stylesheet" href="./css/math.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"
+    integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+<script type="module" src="./js/math-syntax.js"></script>
+<!-- END MATH-SYNTAX -->
+
+    <!-- LINK-PREVIEW -->
+<link rel="stylesheet" href="./css/link-preview.css">
+<script type="module" src="./js/link-preview.js"></script>
+<!-- END LINK-PREVIEW -->
+
+</body>
+
+</html>

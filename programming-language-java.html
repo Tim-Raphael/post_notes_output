@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="The control unit is the part of the cpu that is responsible for loading and executing instructions.">
-    <title>Control Unit (CU) | post_notes</title>
-    <meta name="description" content="The control unit is the part of the cpu that is responsible for loading and executing instructions.">
+    <meta name="description" content="Java is a language you could use.">
+    <title>Java :| | post_notes</title>
+    <meta name="description" content="Java is a language you could use.">
 
    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>">
  
@@ -1338,42 +1338,52 @@
         </aside>
 
         <article>
-            <span>computer-architecture-control-unit.html</span>
+            <span>programming-language-java.html</span>
 
             <div>
                 <p>
                     <span>
                         <br>
-                        * created: 2025-06-09T18:58
+                        * created: 2025-09-21T15:42
                         <br>
                          
-                        * modified: 2025-06-24T18:28
+                        * modified: 2025-09-21T17:19
                         <br>
                         
                     </span>
                 </p>
 
                 <span>title</span><br>
-                <p>Control Unit (CU)</p>
+                <p>Java :|</p>
 
                 <span>description</span><br>
-                <p>The control unit is the part of the cpu that is responsible for loading and executing instructions.</p>
+                <p>Java is a language you could use.</p>
 
                 
             </div>
 
-            <h1>Controlling the unit</h1>
-<p>The control unit handles the execution of a program which is already decoded into the hardware specific machine language. This is done by interpreting the machine code and then executing the required steps.</p>
-<h2>The command cycle</h2>
-<p>The CU has to execute 5 main steps during a instruction cycle; which are:</p>
-<ol>
-<li>Fetch: Obtain the instruction from memory.</li>
-<li>Decode: Interpret the instruction's opcode and operands.</li>
-<li>Load: Retrieve any necessary data from memory or registers.</li>
-<li>Execute: Perform the operation (e.g., arithmetic or logical operation).</li>
-<li>Write: Store the result back into memory or a register.</li>
-</ol>
-<p>This cycle runs until the program ends (or the CPU receives an interrupt), which is sometimes denoted by a 6th interrupt step.</p>
+            <h1>Java is a language</h1>
+<p>Java is a language that promises to run everywhere (that supports the Java runtime). It is a language that has a syntax. It is a language some people use. It is a language I'm not really excited about.</p>
+<h2>Semantics &amp; File Structure</h2>
+<h3>Comments</h3>
+<p>Doc comments contain generell information about the program and it's functionality. <strong>Example</strong>:</p>
+<pre><code class="language-Java">/** 
+ * A Java program.
+ * 
+ * @author  Thomas P. (thomas@example.com)
+ * @version 1.01, 09/2025
+ */ 
+</code></pre>
+<p>Inline comments are commonly used to provide some context to the reader. <strong>Example</strong>:</p>
+<pre><code class="language-Java">// This implementation is trash. 
+</code></pre>
+<h2>Tooling</h2>
+<p><strong>OpenJDK</strong>: The Open Java Development Kit is an implementation of Java Standard Edition. It encompasses tools and library's required to work-on and compile Java projects like:</p>
+<ul>
+<li><strong>javac</strong>: The Java compiler, which is used to compile files with a <code>.java</code> ending to files with a <code>.class</code> ending. Files with the <code>.class</code> ending get interpreted and executed by the Java runtime.</li>
+<li><strong>java</strong>: The Java runtime. To execute a program run <code>java {Program}</code> (<code>{Program}</code> represents the entry class of the program).</li>
+<li><strong>javadoc</strong>: Used to auto-generate HTML-Docs of a given program by referencing the doc comments.</li>
+</ul>
 
         </article>
 

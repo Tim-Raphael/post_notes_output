@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="The TSL Command can be used to ensure exclusive access to a value. This is done by writing the value into a know register and replacing the value in its current position with a 1 (locked).">
-    <title>Test and Set Lock | post_notes</title>
-    <meta name="description" content="The TSL Command can be used to ensure exclusive access to a value. This is done by writing the value into a know register and replacing the value in its current position with a 1 (locked).">
+    <meta name="description" content="The principle of complete induction is used to proof a logical for all statement. This is done by showing that there is at least one element for which the statement is true and then showing that this is also the case for $n+1$.">
+    <title>Complete Induction | post_notes</title>
+    <meta name="description" content="The principle of complete induction is used to proof a logical for all statement. This is done by showing that there is at least one element for which the statement is true and then showing that this is also the case for $n+1$.">
 
    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>">
  
@@ -1338,42 +1338,38 @@
         </aside>
 
         <article>
-            <span>operating-system-tsl.html</span>
+            <span>math-complete-induction.html</span>
 
             <div>
                 <p>
                     <span>
                         <br>
-                        * created: 2025-07-06T17:30
+                        * created: 2025-05-19T21:41
                         <br>
                          
-                        * modified: 2025-07-06T21:54
+                        * modified: 2025-09-22T23:56
                         <br>
                         
                     </span>
                 </p>
 
                 <span>title</span><br>
-                <p>Test and Set Lock</p>
+                <p>Complete Induction</p>
 
                 <span>description</span><br>
-                <p>The TSL Command can be used to ensure exclusive access to a value. This is done by writing the value into a know register and replacing the value in its current position with a 1 (locked).</p>
+                <p>The principle of complete induction is used to proof a logical for all statement. This is done by showing that there is at least one element for which the statement is true and then showing that this is also the case for $n+1$.</p>
 
-                
-                <span>related notes</span><br>
-                <ul>
-                    
-                    <li>
-                        <a href="./operating-system-active-waiting.html">operating-system-active-waiting.html</a>
-                    </li>
-                    
-                </ul>
                 
             </div>
 
-            <h1>Test and Set Lock</h1>
-<p>This instruction loads the current value at the specified address into the accumulator, if it is equal to zero pierced, else check again.</p>
-<p>This potentially infinite loop has some pretty significant trade offs, see <a href="operating-system-active-waiting.html" data-wikilink="true">active waiting</a>.</p>
+            <h1>Staying true to yourself at all times</h1>
+<p>Define a generell for all statement which we want to proof.</p>
+<ol>
+<li><strong>Base Case (Induktionsanfang)</strong>: Show that there is at least one element for which the statement <span data-math-style="inline">A(1)</span> is true.</li>
+<li><strong>Inductive hypothesis (Induktionsvoraussetzung)</strong>: Go with the hypothesis that the statement <span data-math-style="inline">A(n)</span> is true.</li>
+<li><strong>Inductive step (Induktionsschritt)</strong>: Show that <span data-math-style="inline">A(n) \Rightarrow A(n + 1)</span> with the help of the inductive hypothesis.</li>
+</ol>
+<p>As shown in the steps above <span data-math-style="inline">A(n) \Rightarrow A(n+1)</span>; we can therefore conclude that the statement is true for all elements.</p>
 
         </article>
 

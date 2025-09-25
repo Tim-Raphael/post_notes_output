@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="A process can be in a couple of states which are: ready, running and blocked (there are more). This state is stored in the process control block (PCB).">
-    <title>Process state | post_notes</title>
-    <meta name="description" content="A process can be in a couple of states which are: ready, running and blocked (there are more). This state is stored in the process control block (PCB).">
+    <meta name="description" content="Description">
+    <title>Streams and rivers | post_notes</title>
+    <meta name="description" content="Description">
 
    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>">
  
@@ -1370,35 +1370,35 @@
         </aside>
 
         <article>
-            <span>operating-system-process-state.html</span>
+            <span>programming-streams.html</span>
 
             <div>
                 <p>
                     <span>
                         <br>
-                        * created: 2025-05-18T16:29
+                        * created: 2025-09-25T23:23
                         <br>
                          
-                        * modified: 2025-06-03T08:58
+                        * modified: 2025-09-25T23:50
                         <br>
                         
                     </span>
                 </p>
 
                 <span>title</span><br>
-                <p>Process state</p>
+                <p>Streams and rivers</p>
 
                 <span>description</span><br>
-                <p>A process can be in a couple of states which are: ready, running and blocked (there are more). This state is stored in the process control block (PCB).</p>
+                <p>Description</p>
 
                 
             </div>
 
-            <h1>The state of a process</h1>
-<p>A process can be in a couple of states, each of them represent a certain point during the runtime of the process. The main three state are ready, running and blocked (there are a couple more depending on the operating system).</p>
-<p><strong>ready:</strong> The process was created and waits to be executed by the CPU.</p>
-<p><strong>running:</strong> The process has access to the CPU and is currently getting executed. This state can be interrupted and the access to the CPU be revoked.</p>
-<p><strong>blocked:</strong> The process is currently waiting on a resource. This can happen when waiting on the result of I/O operation. During this time the process has no access the CPU. When the resource arrives (I/O operation finishes) the process switches back into the ready state and can be picked up by the CPU again.</p>
+            <h1>Streams and Rivers</h1>
+<p>A <strong>stream</strong> is an abstraction that represents a sequence of data elements, which can be used to read and write from/to a data source.</p>
+<blockquote>
+<p>Data that is being read can't be accessed again without closing and reopening the stream, because of it's sequential data.</p>
+</blockquote>
 
         </article>
 

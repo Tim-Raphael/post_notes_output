@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="The Von Neumann architecture (VNA) is a reference system for computer which consists of 4 main components: CPU (with control unit and arithmetic logic unit), I&#x2F;O unit, memory unit and a bus system.">
-    <title>Von Neumann Architecture | post_notes</title>
-    <meta name="description" content="The Von Neumann architecture (VNA) is a reference system for computer which consists of 4 main components: CPU (with control unit and arithmetic logic unit), I&#x2F;O unit, memory unit and a bus system.">
+    <meta name="description" content="A basic encryption method that maps every letter to another by shifting each one by an offset.">
+    <title>Caeser-Cipher | post_notes</title>
+    <meta name="description" content="A basic encryption method that maps every letter to another by shifting each one by an offset.">
 
    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>">
  
@@ -1574,67 +1574,38 @@
         </aside>
 
         <article>
-            <span>computer-architecture-von-neumann.html</span>
+            <span>cryptography-caeser-cipher.html</span>
 
             <div>
                 <p>
                     <span>
                         <br>
-                        * created: 2025-06-16T09:21
+                        * created: 2025-10-17T16:29
                         <br>
                          
-                        * modified: 2025-09-21T17:33
+                        * modified: 2025-10-17T16:35
                         <br>
                         
                     </span>
                 </p>
 
                 <span>title</span><br>
-                <p>Von Neumann Architecture</p>
+                <p>Caeser-Cipher</p>
 
                 <span>description</span><br>
-                <p>The Von Neumann architecture (VNA) is a reference system for computer which consists of 4 main components: CPU (with control unit and arithmetic logic unit), I&#x2F;O unit, memory unit and a bus system.</p>
+                <p>A basic encryption method that maps every letter to another by shifting each one by an offset.</p>
 
-                
-                <span>related notes</span><br>
-                <ul>
-                    
-                    <li>
-                        <a href="./computer-architecture-bus.html">computer-architecture-bus.html</a>
-                    </li>
-                    
-                </ul>
                 
             </div>
 
-            <h1>Von Neumann Architecture</h1>
-<p>The represents a general reference system for a computer which consists of 4 main components: CPU, I/O-Unit, Memory-Unit and a central Bus-System.</p>
+            <h1>Caesar-Cipher</h1>
+<p>A basic encryption method that maps every letter to another by shifting each one by an offset.</p>
+<p><strong>Encryption</strong>: <span data-math-style="inline">E: \mathbb{Z_{26} \times Z_{26}} \to Z_{26}</span> is defined as <span data-math-style="inline">E_{K}(M) = (M+K) mod 26</span></p>
+<p><strong>Decryption</strong>: <span data-math-style="inline">E^{-1}: \mathbb{Z_{26} \times Z_{26}} \to Z_{26}</span> is defined as <span data-math-style="inline">E_{K}^{-1}(C) = (C-K) mod 26</span></p>
+<p>This encryption encryption method uses a set of <span data-math-style="inline">26</span> permutations that are iterative applied to every letter of <span data-math-style="inline">M</span> or <span data-math-style="inline">C</span>.</p>
 <blockquote>
-<p>Each component can be broken down in a complex sub-structures which intern have their own sub-modules.</p>
+<p>With <span data-math-style="inline">K = 13</span> we get <span data-math-style="inline">E_{13} = E^{-1}_{13}</span> since <span data-math-style="inline">(13+13 \bmod 26) = 0 = 13-13</span>.</p>
 </blockquote>
-<h2>General structure:</h2>
-<p><img src="./media/Drawing%202025-06-16%2016.40.52.excalidraw.svg" alt="" /></p>
-<ul>
-<li><strong>Arithmetic Logic Unit</strong>: Executes basic arithmetic logic on values currently present in the input register and writes result into accumulator.</li>
-<li><strong>Memory Address Register</strong>: Holds addresses for data or instructions.</li>
-<li><strong>Memory Data Register</strong>: Holds data that is being transferred from ant to memory.</li>
-<li><strong>Control Unit</strong>: Manages the fetching, decoding and execution of instructions and the general data flow.</li>
-</ul>
-<h2>BUS (Binary Unit System)</h2>
-<p>Link: <a href="computer-architecture-bus.html" data-wikilink="true">Bus</a></p>
-<h3>Von Neumann bottleneck</h3>
-<p>The Central Processing Unit and Memory are separat and need to communicate over a shared bus. Both instructions and data reside in the same memory; since they are fetched over the same bus system the CPU can only fetch one at a time.</p>
-<blockquote>
-<p>This is mitigated through separat instruction and data memory and bus system in the Harvard-Architecture.</p>
-</blockquote>
-<h2>Von Neumann Cycle</h2>
-<ol>
-<li><strong>Fetch</strong>: Fetch the instruction that is stored under the address held in the program counter.</li>
-<li><strong>Decode</strong>: Decode that instruction.</li>
-<li><strong>Load</strong>: Load the operands necessary for the execution of said instruction.</li>
-<li><strong>Execute</strong>: Execute said instruction.</li>
-<li><strong>Write</strong>: If necessary write the resulting value back.</li>
-</ol>
 
         </article>
 

@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Description">
-    <title>One Time Pad | post_notes</title>
-    <meta name="description" content="Description">
+    <meta name="description" content="These are numbers that are only divisible by $1$ and itself.">
+    <title>Prime numbers | post_notes</title>
+    <meta name="description" content="These are numbers that are only divisible by $1$ and itself.">
 
    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>">
  
@@ -1714,51 +1714,77 @@
         </aside>
 
         <article>
-            <span>cryptography-otp.html</span>
+            <span>math-prime-number.html</span>
 
             <div>
                 <p>
                     <span>
                         <br>
-                        * created: 2025-10-06T19:26
+                        * created: 2025-10-21T22:28
                         <br>
                          
-                        * modified: 2025-10-12T19:54
+                        * modified: 2025-10-21T23:17
                         <br>
                         
                     </span>
                 </p>
 
                 <span>title</span><br>
-                <p>One Time Pad</p>
+                <p>Prime numbers</p>
 
                 <span>description</span><br>
-                <p>Description</p>
+                <p>These are numbers that are only divisible by $1$ and itself.</p>
 
                 
                 <span>related notes</span><br>
                 <ul>
                     
                     <li>
-                        <a href="./compsci-bit-wise-operation.html">compsci-bit-wise-operation.html</a>
+                        <a href="./math-set.html">math-set.html</a>
+                    </li>
+                    
+                    <li>
+                        <a href="./math-prime-number-distribution.html">math-prime-number-distribution.html</a>
+                    </li>
+                    
+                    <li>
+                        <a href="./development-programming-algorithm-prime-factorization.html">development-programming-algorithm-prime-factorization.html</a>
+                    </li>
+                    
+                    <li>
+                        <a href="./math-prime-number-fermats-primatliy-test.html">math-prime-number-fermats-primatliy-test.html</a>
+                    </li>
+                    
+                    <li>
+                        <a href="./math-prime-number-miller-rabin-test.html">math-prime-number-miller-rabin-test.html</a>
                     </li>
                     
                 </ul>
                 
             </div>
 
-            <h1>One Time Pad (OTP)</h1>
-<p>The one type pad method uses a <strong>random</strong> key, which has to be as long as the message to be encrypted. The encryption part is just <a href="compsci-bit-wise-operation.html" data-wikilink="true">XOR</a>.</p>
-<ul>
-<li><strong>Encryption</strong>: <span data-math-style="inline">M=D_{K}(C)=C \oplus K</span></li>
-<li><strong>Decryption</strong>: <span data-math-style="inline">C=E_{K}(M)=M \oplus K</span></li>
-</ul>
-<h2>Manipulating the cipher</h2>
-<p>If a bit shifts in the cipher text, the same bit in the message, which makes it possible to manipulate the message (secrecy but not integrity).</p>
-<h2>Can't use the same key twice.</h2>
+            <h1>Prime Numbers</h1>
+<p>A number <span data-math-style="inline">p \in \mathbb{N}^{+}</span> is a prime number, if it has exactly two positive divisors (<span data-math-style="inline">1</span> and <span data-math-style="inline">p</span>). These numbers are the building blocks of all <span data-math-style="inline">\mathbb{N}</span>, since every natural number <span data-math-style="inline">n&lt;1</span> can be written as the product of prime numbers.</p>
 <blockquote>
-<p><span data-math-style="inline">C \oplus C' = M \oplus M'</span></p>
+<p><span data-math-style="inline">10</span> is the product of <span data-math-style="inline">2</span> and <span data-math-style="inline">5</span>.
+A lot of asymmetric methods in cryptography are base around prime numbers.
+<span data-math-style="inline">\mathbb{P}</span> is the <a href="math-set.html" data-wikilink="true">set</a> of all prime numbers.
+All prime numbers, except <span data-math-style="inline">2</span>, are odd numbers.</p>
 </blockquote>
+<p>The <strong>prime factor</strong> <span data-math-style="inline">p</span> of <span data-math-style="inline">n \in \mathbb{n} , n&gt;1</span> is defined as <span data-math-style="inline">p \in \mathbb{P}: p | n</span>.</p>
+<h2>Fundamental Theorem of Arithmetic</h2>
+<p>The fundamental theorem of arithmetic asserts that every number <span data-math-style="inline">n \in \mathbb{N}, n&gt;1</span> can be written as the product one or more <span data-math-style="inline">p \in \mathbb{P}</span>.</p>
+<p>Furthermore can <span data-math-style="inline">n</span> be deconstructed in it's prime factors in a process called prime factorization. Numbers that are no prime numbers are also referred to as composite numbers.</p>
+<blockquote>
+<p><strong>Definition</strong>: Every <span data-math-style="inline">n \in \mathbb{N}, n&gt;1</span> can be written as the product of one or more prime numbers, i.e. <span data-math-style="inline">n = \prod_{i=1}^k p_i</span> with <span data-math-style="inline">p_{i} \in \mathbb{P}</span>. Every prime factor is uniquely defined through this product up to the order of the factors.</p>
+</blockquote>
+<h2>Related Topics:</h2>
+<ul>
+<li><a href="math-prime-number-distribution.html" data-wikilink="true">Prime Number Distribution</a></li>
+<li><a href="development-programming-algorithm-prime-factorization.html" data-wikilink="true">Prime Factorization</a></li>
+<li><a href="math-prime-number-fermats-primatliy-test.html" data-wikilink="true">Fermats Primality Test</a></li>
+<li><a href="math-prime-number-miller-rabin-test.html" data-wikilink="true">Miller Rabin</a></li>
+</ul>
 
         </article>
 

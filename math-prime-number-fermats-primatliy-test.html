@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Description">
-    <title>One Time Pad | post_notes</title>
-    <meta name="description" content="Description">
+    <meta name="description" content="To test if a number is  is not a prime number we just take a random number  with the gcd  and check if , if that&#x27;s the case  is not a prime number.">
+    <title>Fermat&#x27;s Primality Test | post_notes</title>
+    <meta name="description" content="To test if a number is  is not a prime number we just take a random number  with the gcd  and check if , if that&#x27;s the case  is not a prime number.">
 
    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>">
  
@@ -1714,50 +1714,52 @@
         </aside>
 
         <article>
-            <span>cryptography-otp.html</span>
+            <span>math-prime-number-fermats-primatliy-test.html</span>
 
             <div>
                 <p>
                     <span>
                         <br>
-                        * created: 2025-10-06T19:26
+                        * created: 2025-10-21T23:00
                         <br>
                          
-                        * modified: 2025-10-12T19:54
+                        * modified: 2025-10-21T23:16
                         <br>
                         
                     </span>
                 </p>
 
                 <span>title</span><br>
-                <p>One Time Pad</p>
+                <p>Fermat&#x27;s Primality Test</p>
 
                 <span>description</span><br>
-                <p>Description</p>
+                <p>To test if a number is  is not a prime number we just take a random number  with the gcd  and check if , if that&#x27;s the case  is not a prime number.</p>
 
                 
                 <span>related notes</span><br>
                 <ul>
                     
                     <li>
-                        <a href="./compsci-bit-wise-operation.html">compsci-bit-wise-operation.html</a>
+                        <a href="./math-simplification.html#Greatest common divisor">math-simplification.html#Greatest common divisor</a>
                     </li>
                     
                 </ul>
                 
             </div>
 
-            <h1>One Time Pad (OTP)</h1>
-<p>The one type pad method uses a <strong>random</strong> key, which has to be as long as the message to be encrypted. The encryption part is just <a href="compsci-bit-wise-operation.html" data-wikilink="true">XOR</a>.</p>
-<ul>
-<li><strong>Encryption</strong>: <span data-math-style="inline">M=D_{K}(C)=C \oplus K</span></li>
-<li><strong>Decryption</strong>: <span data-math-style="inline">C=E_{K}(M)=M \oplus K</span></li>
-</ul>
-<h2>Manipulating the cipher</h2>
-<p>If a bit shifts in the cipher text, the same bit in the message, which makes it possible to manipulate the message (secrecy but not integrity).</p>
-<h2>Can't use the same key twice.</h2>
+            <h1>Fermat's primality test</h1>
+<p>The basis for this test is <strong>Fermat's little theorem</strong>:
+For every <span data-math-style="inline">p\in \mathbb{P}</span> and <span data-math-style="inline">a\in\mathbb{N}</span> being co-prime to <span data-math-style="inline">p</span>:
+<span data-math-style="display">
+a^{p-1} \mod p=1
+</span></p>
+<p>So to test if a number is <span data-math-style="inline">x</span> is <strong>not</strong> a prime number we just take a random number <span data-math-style="inline">a \in \mathbb{Z}_{p}^{*}</span> with the <a href="math-simplification.html#Greatest%20common%20divisor" data-wikilink="true">gcd</a> <span data-math-style="inline">=1</span> and check if <span data-math-style="inline">a^{p-1} \mod p\neq 1</span>, if that's the case <span data-math-style="inline">x</span> is not a prime number.</p>
 <blockquote>
-<p><span data-math-style="inline">C \oplus C' = M \oplus M'</span></p>
+<p><span data-math-style="inline">a</span> is also referred to as <strong>fermat witness</strong>.</p>
+</blockquote>
+<p>At this point you can definitely proof that a <span data-math-style="inline">n</span> is a <strong>composite</strong> number, but the converse isn't always true. This is due to so called <strong>Carmichael  Numbers</strong>; <span data-math-style="inline">n</span> is a Carmichael number if and only if <span data-math-style="inline">n</span> is square-free (not divisible by any perfect square other than <span data-math-style="inline">1</span>) and for every prime divisor <span data-math-style="inline">p</span> of <span data-math-style="inline">n</span>, the quantity (<span data-math-style="inline">p - 1</span>) divides (<span data-math-style="inline">n - 1</span>). To check <span data-math-style="inline">561 = 3 × 11 × 17</span>: <span data-math-style="inline">(3-1) = 2</span> divides <span data-math-style="inline">560</span>, <span data-math-style="inline">(11-1) = 10</span> divides <span data-math-style="inline">560</span>, and <span data-math-style="inline">(17-1) = 16</span> divides <span data-math-style="inline">560</span>.</p>
+<blockquote>
+<p>if <span data-math-style="inline">a^{n-1} \mod n = 1</span> even though <span data-math-style="inline">n</span> is a composite number, <span data-math-style="inline">a</span> is referred to as a <strong>fermat liar</strong>.</p>
 </blockquote>
 
         </article>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="Description">
-    <title>One Time Pad | post_notes</title>
+    <title>Miller Rabin Test | post_notes</title>
     <meta name="description" content="Description">
 
    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>">
@@ -1714,51 +1714,43 @@
         </aside>
 
         <article>
-            <span>cryptography-otp.html</span>
+            <span>math-prime-number-miller-rabin-test.html</span>
 
             <div>
                 <p>
                     <span>
                         <br>
-                        * created: 2025-10-06T19:26
+                        * created: 2025-10-21T22:33
                         <br>
                          
-                        * modified: 2025-10-12T19:54
+                        * modified: 2025-10-21T23:15
                         <br>
                         
                     </span>
                 </p>
 
                 <span>title</span><br>
-                <p>One Time Pad</p>
+                <p>Miller Rabin Test</p>
 
                 <span>description</span><br>
                 <p>Description</p>
 
                 
-                <span>related notes</span><br>
-                <ul>
-                    
-                    <li>
-                        <a href="./compsci-bit-wise-operation.html">compsci-bit-wise-operation.html</a>
-                    </li>
-                    
-                </ul>
-                
             </div>
 
-            <h1>One Time Pad (OTP)</h1>
-<p>The one type pad method uses a <strong>random</strong> key, which has to be as long as the message to be encrypted. The encryption part is just <a href="compsci-bit-wise-operation.html" data-wikilink="true">XOR</a>.</p>
+            <h1>Miller-Rabin-Test</h1>
+<p>A test that works with <span data-math-style="inline">x\geq3</span>:</p>
+<ol>
+<li>Choose a random number <span data-math-style="inline">a \in \{2,\dots x-,\}</span></li>
+<li>Check if <span data-math-style="inline">a</span> is co-prime to <span data-math-style="inline">x</span>. If not <span data-math-style="inline">x</span> is not a prime number.</li>
+<li>Calculate a odd number <span data-math-style="inline">d</span>, which solves the following equation: <span data-math-style="inline">x-1 = d \cdot 2^{j}</span></li>
+<li>Test if <span data-math-style="inline">x</span> is meets the following conditions; if not <span data-math-style="inline">a</span> is a <strong>fermat witness</strong> that <span data-math-style="inline">x</span> is a composite number
 <ul>
-<li><strong>Encryption</strong>: <span data-math-style="inline">M=D_{K}(C)=C \oplus K</span></li>
-<li><strong>Decryption</strong>: <span data-math-style="inline">C=E_{K}(M)=M \oplus K</span></li>
+<li><span data-math-style="inline">a^{d} \mod x = 1</span></li>
+<li><span data-math-style="inline">a^{d \cdot 2^{r}} \mod x = x - 1</span> for <span data-math-style="inline">r \in \{0,\dots j-1 \}</span></li>
 </ul>
-<h2>Manipulating the cipher</h2>
-<p>If a bit shifts in the cipher text, the same bit in the message, which makes it possible to manipulate the message (secrecy but not integrity).</p>
-<h2>Can't use the same key twice.</h2>
-<blockquote>
-<p><span data-math-style="inline">C \oplus C' = M \oplus M'</span></p>
-</blockquote>
+</li>
+</ol>
 
         </article>
 

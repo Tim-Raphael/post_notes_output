@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="The principle of induction is used to proof a logical for all statement. This is done by showing that there is at least one element for which the statement is true and then showing that this is also the case for $n+1$.">
-    <title>Math Induction | post_notes</title>
-    <meta name="description" content="The principle of induction is used to proof a logical for all statement. This is done by showing that there is at least one element for which the statement is true and then showing that this is also the case for $n+1$.">
+    <meta name="description" content="Description">
+    <title>Probabililies and elementary events | post_notes</title>
+    <meta name="description" content="Description">
 
    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>">
  
@@ -1874,40 +1874,54 @@
         </aside>
 
         <article>
-            <span>math-induction.html</span>
+            <span>math-probability.html</span>
 
             <div>
                 <p>
                     <span>
                         <br>
-                        * created: 2025-05-19T21:41
+                        * created: 2025-10-28T16:27
                         <br>
                          
-                        * modified: 2025-10-28T15:57
+                        * modified: 2025-10-28T16:30
                         <br>
                         
                     </span>
                 </p>
 
                 <span>title</span><br>
-                <p>Math Induction</p>
+                <p>Probabililies and elementary events</p>
 
                 <span>description</span><br>
-                <p>The principle of induction is used to proof a logical for all statement. This is done by showing that there is at least one element for which the statement is true and then showing that this is also the case for $n+1$.</p>
+                <p>Description</p>
 
                 
             </div>
 
-            <h1>Staying true to yourself at all times</h1>
-<p>Define a general for all statement which we want to proof.</p>
+            <h1>Calculating probabilities of elementary events</h1>
+<h2>Probability distribution</h2>
+<p>Let <span data-math-style="inline">\ohm</span> be the sample space, then <span data-math-style="inline">Pr: \ohm \to [0, 1]</span> a probability distribution, if the following holds:
+<span data-math-style="display">
+\sum_{w\in\ohm} Pr(w) = 1
+</span></p>
+<blockquote>
+<p>If <span data-math-style="inline">Pr(w)=0</span>, then is <span data-math-style="inline">w</span> a impossible outcome.
+If <span data-math-style="inline">Pr(w)=1</span>, then is <span data-math-style="inline">w</span> a safe outcome.
+Each <span data-math-style="inline">w</span> is refereed to as an elementary event</p>
+</blockquote>
+<p>For a outcome <span data-math-style="inline">A \subseteq \ohm</span> is <span data-math-style="inline">\bar{A}=\ohm \setminus A</span> the complement and the following holds:
+<span data-math-style="display">
+Pr(\bar{A}) = 1 - Pr(A)
+</span></p>
+<h2>Calculations rules for probabilities</h2>
+<p>Let <span data-math-style="inline">\ohm</span> be the sample space and <span data-math-style="inline">Pr: \ohm \to [0, 1]</span> a probability distribution, then the following calculation rules apply:</p>
 <ol>
-<li><strong>Base case (Induktionsanfang)</strong>: Show that there is at least one element for which the statement <span data-math-style="inline">A(1)</span> is true.</li>
-<li><strong>Inductive hypothesis (Induktionsvoraussetzung)</strong>: Go with the hypothesis that the statement <span data-math-style="inline">A(n)</span> is true.</li>
-<li><strong>Inductive step (Induktionsschritt)</strong>: Show that <span data-math-style="inline">A(n) \Rightarrow A(n + 1)</span> with the help of the inductive hypothesis.</li>
+<li><span data-math-style="inline">Pr(\ohm = 1)</span>, <span data-math-style="inline">Pr(\emptyset)=0</span> and <span data-math-style="inline">\forall A \subseteq \ohm : Pr(A) \geq 0</span></li>
+<li><span data-math-style="inline">\Pr(A \cup B) = \Pr(A) + \Pr(B) - \Pr(A \cap B) \le \Pr(A) + \Pr(B)</span></li>
+<li><span data-math-style="inline">A \subset B = \emptyset \implies Pr(A \cup B) = Pr(A) + Pr(B)</span></li>
+<li><span data-math-style="inline">Pr(A\cap B) \geq Pr(A) - Pr(\bar{B})</span></li>
+<li><span data-math-style="inline">Pr(A \setminus B) = Pr(A) - Pr(A \cap B)</span></li>
 </ol>
-<p>As shown in the steps above <span data-math-style="inline">A(n) \Rightarrow A(n+1)</span>; we can therefore conclude that the statement is true for all elements.</p>
-<h2>Peon Axiom</h2>
-<p>TODO!</p>
 
         </article>
 

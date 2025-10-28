@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="The principle of induction is used to proof a logical for all statement. This is done by showing that there is at least one element for which the statement is true and then showing that this is also the case for $n+1$.">
-    <title>Math Induction | post_notes</title>
-    <meta name="description" content="The principle of induction is used to proof a logical for all statement. This is done by showing that there is at least one element for which the statement is true and then showing that this is also the case for $n+1$.">
+    <meta name="description" content="A function that maps an item from a sample space to a measurable space (from a potential outcome to a defined outcome).">
+    <title>Random Variable | post_notes</title>
+    <meta name="description" content="A function that maps an item from a sample space to a measurable space (from a potential outcome to a defined outcome).">
 
    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>">
  
@@ -1874,40 +1874,57 @@
         </aside>
 
         <article>
-            <span>math-induction.html</span>
+            <span>math-random-variable.html</span>
 
             <div>
                 <p>
                     <span>
                         <br>
-                        * created: 2025-05-19T21:41
+                        * created: 2025-10-28T16:48
                         <br>
                          
-                        * modified: 2025-10-28T15:57
+                        * modified: 2025-10-28T16:51
                         <br>
                         
                     </span>
                 </p>
 
                 <span>title</span><br>
-                <p>Math Induction</p>
+                <p>Random Variable</p>
 
                 <span>description</span><br>
-                <p>The principle of induction is used to proof a logical for all statement. This is done by showing that there is at least one element for which the statement is true and then showing that this is also the case for $n+1$.</p>
+                <p>A function that maps an item from a sample space to a measurable space (from a potential outcome to a defined outcome).</p>
 
+                
+                <span>related notes</span><br>
+                <ul>
+                    
+                    <li>
+                        <a href="./math-function.html">math-function.html</a>
+                    </li>
+                    
+                    <li>
+                        <a href="./math-set.html">math-set.html</a>
+                    </li>
+                    
+                    <li>
+                        <a href="./math-standard-number-sets.html">math-standard-number-sets.html</a>
+                    </li>
+                    
+                </ul>
                 
             </div>
 
-            <h1>Staying true to yourself at all times</h1>
-<p>Define a general for all statement which we want to proof.</p>
-<ol>
-<li><strong>Base case (Induktionsanfang)</strong>: Show that there is at least one element for which the statement <span data-math-style="inline">A(1)</span> is true.</li>
-<li><strong>Inductive hypothesis (Induktionsvoraussetzung)</strong>: Go with the hypothesis that the statement <span data-math-style="inline">A(n)</span> is true.</li>
-<li><strong>Inductive step (Induktionsschritt)</strong>: Show that <span data-math-style="inline">A(n) \Rightarrow A(n + 1)</span> with the help of the inductive hypothesis.</li>
-</ol>
-<p>As shown in the steps above <span data-math-style="inline">A(n) \Rightarrow A(n+1)</span>; we can therefore conclude that the statement is true for all elements.</p>
-<h2>Peon Axiom</h2>
-<p>TODO!</p>
+            <h1>Random Variables</h1>
+<p>They're neither random nor variables.</p>
+<p>A random variable <span data-math-style="inline">X</span> is a <strong>measurable <a href="math-function.html" data-wikilink="true">function</a></strong> from a <a href="math-set.html" data-wikilink="true">sample space</a> <span data-math-style="inline">\ohm</span> to a <a href="math-standard-number-sets.html" data-wikilink="true">measurable</a> space <span data-math-style="inline">S</span>:
+<span data-math-style="display">
+X: \ohm \to S
+</span></p>
+<p>Two random variables are <strong>independent</strong>, if:</p>
+<p><span data-math-style="display">
+f(s,t) = \Pr(X=s, Y=t) = \Pr(X=s) \cdot \Pr(Y=t)
+</span></p>
 
         </article>
 

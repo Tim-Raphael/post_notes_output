@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="The principle of induction is used to proof a logical for all statement. This is done by showing that there is at least one element for which the statement is true and then showing that this is also the case for $n+1$.">
-    <title>Math Induction | post_notes</title>
-    <meta name="description" content="The principle of induction is used to proof a logical for all statement. This is done by showing that there is at least one element for which the statement is true and then showing that this is also the case for $n+1$.">
+    <meta name="description" content="Mapping input value to a $n$ bit output.">
+    <title>Hash Function | post_notes</title>
+    <meta name="description" content="Mapping input value to a $n$ bit output.">
 
    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>">
  
@@ -1874,40 +1874,52 @@
         </aside>
 
         <article>
-            <span>math-induction.html</span>
+            <span>cryptography-hash-function.html</span>
 
             <div>
                 <p>
                     <span>
                         <br>
-                        * created: 2025-05-19T21:41
+                        * created: 2025-10-28T16:39
                         <br>
                          
-                        * modified: 2025-10-28T15:57
+                        * modified: 2025-10-28T16:41
                         <br>
                         
                     </span>
                 </p>
 
                 <span>title</span><br>
-                <p>Math Induction</p>
+                <p>Hash Function</p>
 
                 <span>description</span><br>
-                <p>The principle of induction is used to proof a logical for all statement. This is done by showing that there is at least one element for which the statement is true and then showing that this is also the case for $n+1$.</p>
+                <p>Mapping input value to a $n$ bit output.</p>
 
                 
             </div>
 
-            <h1>Staying true to yourself at all times</h1>
-<p>Define a general for all statement which we want to proof.</p>
+            <h1>Hash functions</h1>
+<p>A hash function generally produces a <span data-math-style="inline">256</span> or <span data-math-style="inline">512</span> bit long hash value (shorter values are not considered safe, because it is possible to force collisions with enough compute).</p>
+<blockquote>
+<p>Given <span data-math-style="inline">a</span> and <span data-math-style="inline">a</span> with <span data-math-style="inline">a \neq a</span> and a hash function <span data-math-style="inline">f</span>, if <span data-math-style="inline">f(a) = f(a)</span> it's called a collision. A digital signing method, where there is a <em>practical</em> way to create those collisions is not secure.</p>
+</blockquote>
+<p>For a hash function to be considered <strong>safe</strong> it must fulfill the following 2 properties:</p>
 <ol>
-<li><strong>Base case (Induktionsanfang)</strong>: Show that there is at least one element for which the statement <span data-math-style="inline">A(1)</span> is true.</li>
-<li><strong>Inductive hypothesis (Induktionsvoraussetzung)</strong>: Go with the hypothesis that the statement <span data-math-style="inline">A(n)</span> is true.</li>
-<li><strong>Inductive step (Induktionsschritt)</strong>: Show that <span data-math-style="inline">A(n) \Rightarrow A(n + 1)</span> with the help of the inductive hypothesis.</li>
+<li><strong>Collision resistant</strong>: It's practically impossible to find two inputs <span data-math-style="inline">a</span> and <span data-math-style="inline">b</span> with <span data-math-style="inline">a \neq b</span> for which <span data-math-style="inline">H(a) = H(b)</span>. You should need to execute <span data-math-style="inline">H</span> roughly  <span data-math-style="inline">2^{n\div 2}</span> times.</li>
+<li><strong>Preimage-Security</strong>: It is practically impossible for any given <span data-math-style="inline">y=H(x)</span> to find a random <span data-math-style="inline">x\in\{0,1\}*</span> a value  <span data-math-style="inline">x'</span> (preimage) with <span data-math-style="inline">H(x')=y</span>. The effort needed to invert <span data-math-style="inline">y</span> should be roughly <span data-math-style="inline">2^n</span> executions of <span data-math-style="inline">H</span>. A functions that fulfills such a property is refereed to as a one way function</li>
 </ol>
-<p>As shown in the steps above <span data-math-style="inline">A(n) \Rightarrow A(n+1)</span>; we can therefore conclude that the statement is true for all elements.</p>
-<h2>Peon Axiom</h2>
-<p>TODO!</p>
+<h2>Birthday Paradox</h2>
+<p>To calculate the probability <span data-math-style="inline">b</span> people in a room share the same birthday, the following formula can be applied:</p>
+<p><span data-math-style="display">
+\begin{align}
+Pr(A_{b}) &amp;= \frac{365!}{(365 - b)! \cdot 365^{b}} \\
+Pr(\bar{A_{b}}) &amp;= 1-Pr(A_{b}) 
+\end{align}
+</span></p>
+<p>This can be used to guesstimate the probability of collisions (people sharing the same birthday) by using <span data-math-style="inline">Pr(A_{b})</span>, which is roughly equal to <span data-math-style="inline">s(N) = 1.2 \cdot \sqrt{N}</span></p>
+<blockquote>
+<p>Cryptographers are optimists so they just use <span data-math-style="inline">t(N) = \sqrt{N}</span> .</p>
+</blockquote>
 
         </article>
 

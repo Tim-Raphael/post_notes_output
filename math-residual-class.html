@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Building a cute digital garden.">
-    <title>Homepage | post-notes</title>
-    <meta name="description" content="Building a cute digital garden.">
+    <meta name="description" content="A set that holds all numbers which have the same residue $\mod n$.">
+    <title>Residual Class | post-notes</title>
+    <meta name="description" content="A set that holds all numbers which have the same residue $\mod n$.">
 
    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>">
  
@@ -1953,50 +1953,74 @@
         </aside>
 
         <article>
-            <span>index.html</span>
+            <span>math-residual-class.html</span>
 
             <div>
                 <p>
                     <span>
                         <br>
-                        * created: 2025-05-23T13:35
+                        * created: 2025-11-12T17:42
                         <br>
                          
-                        * modified: 2025-08-02T23:44
+                        * modified: 2025-11-12T17:45
                         <br>
                         
                     </span>
                 </p>
 
                 <span>title</span><br>
-                <p>Homepage</p>
+                <p>Residual Class</p>
 
                 <span>description</span><br>
-                <p>Building a cute digital garden.</p>
+                <p>A set that holds all numbers which have the same residue $\mod n$.</p>
 
+                
+                <span>related notes</span><br>
+                <ul>
+                    
+                    <li>
+                        <a href="./math-set.html">math-set.html</a>
+                    </li>
+                    
+                </ul>
                 
             </div>
 
-            <h1>Post Notes</h1>
-<p>This is a tool that generates a static website out of my notes. The idea originates from the concept of <strong>digital gardens</strong>. To summarize: A digital garden is a personal space online where you can share and develop your ideas, it tends to be way less structured as a traditional blog.</p>
+            <h1>Residual Classes</h1>
+<p>This refers to <a href="math-set.html" data-wikilink="true">sets</a>, that hold all numbers, which have the same residue [math-modulo|modulo] <span data-math-style="inline">n</span>.</p>
+<p>TODO: Put this in it's own note.</p>
 <blockquote>
-<p>It's called a garden because it is a lot more iterative then a traditional blog. Like a real garden you need to maintain regularly, a digital garden also encourages you to revisit and refine ideas over a prolonged period of time.</p>
+<p><strong>Congruence (Modulo)</strong>: When we write <span data-math-style="inline">a \equiv_n b</span> (or <span data-math-style="inline">a \equiv b \pmod{n}</span>), we mean that <span data-math-style="inline">a</span> and <span data-math-style="inline">b</span> have the same remainder when divided by <span data-math-style="inline">n</span>. Equivalently, <span data-math-style="inline">n</span> divides the difference <span data-math-style="inline">(a-b)</span>.</p>
 </blockquote>
-<h2>Keybindings</h2>
-<p>Since these can deviate quite a lot from the keybindings you might expect, depending on your personal background, I try to keep a up to date list of the most important keybindings below:</p>
-<h3>Search</h3>
-<ul>
-<li><strong>&quot;/&quot;</strong>: Search through files.
-<ul>
-<li><strong>&quot;esc&quot;</strong>: Exit out of search.</li>
-</ul>
-</li>
-</ul>
-<h3>Navigation</h3>
-<ul>
-<li><strong>&quot;j&quot;</strong>: Scroll down.</li>
-<li><strong>&quot;k&quot;</strong>: Scroll up.</li>
-</ul>
+<p>Let <span data-math-style="inline">n \in \mathbb{N}^{+}</span> and <span data-math-style="inline">a\in{0,...,n-1}</span>, then we define the residual class for <span data-math-style="inline">a \mod n</span> as follows:</p>
+<p><span data-math-style="display">
+a_{n} = \{ z \in \mathbb{Z} | z \mod n = a \mod n \}
+</span></p>
+<p><strong>Example</strong>: <span data-math-style="inline">2_{5} = \{ \dots, -8, -3, 2, 7, 12, \dots \}</span></p>
+<h2>Quotient Rings</h2>
+<p>Let <span data-math-style="inline">n \in \mathbb{N}^{+}</span>, then is <span data-math-style="inline">\mathbb{Z} \div n \mathbb{Z}=Z_{n}</span> the <strong>Quotient Ring</strong> of modulo <span data-math-style="inline">n</span> and the following holds:</p>
+<p><span data-math-style="display">
+\mathbb{Z}_{n} = \{0, 1, 2 \dots n-1\}
+</span></p>
+<p><strong>Example</strong>:</p>
+<p><span data-math-style="display">
+\begin{align}
+0_{5} &amp;= \{ \ldots, -10, -5, 0, 5, 10, \ldots \} \\
+1_{5} &amp;= \{ \ldots,  -9, -4, 1, 6, 11, \ldots \} \\
+2_{5} &amp;= \{ \ldots,  -8, -3, 2, 7, 12, \ldots \} \\
+3_{5} &amp;= \{ \ldots,  -7, -2, 3, 8, 13, \ldots \} \\
+4_{5} &amp;= \{ \ldots,  -6, -1, 4, 9, 14, \ldots \}
+\end{align}
+</span></p>
+<p><strong>Calculation rule</strong>:</p>
+<p><span data-math-style="display">
+\begin{align}
+&amp;\text{1. }(a+b) \bmod n = \left( (a \bmod n) + (b \bmod n)\right) \bmod n \\
+&amp;\text{2. }(a-b) \bmod n = \left( (a \bmod n) - (b \bmod n)\right) \bmod n \\
+&amp;\text{3. } (a\cdot b) \bmod n = \left((a \bmod n) \cdot (b \bmod n)\right) \bmod n \\
+&amp;\text{4. } a^d \bmod n = (a^{d-x} \cdot a^x) \bmod n = ((a^{d-x} \bmod n) \cdot (a^x \bmod n)) \bmod n  \; (\text{for } x \leq d)
+\end{align}
+</span></p>
 
         </article>
 

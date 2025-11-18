@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Register are  small memory units are commonly found inside the CPU.">
-    <title>Register | post-notes</title>
-    <meta name="description" content="Register are  small memory units are commonly found inside the CPU.">
+    <meta name="description" content="Groups are a set of numbers which are linked by an operation.">
+    <title>Groups | post-notes</title>
+    <meta name="description" content="Groups are a set of numbers which are linked by an operation.">
 
    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>">
  
@@ -1978,74 +1978,94 @@
         </aside>
 
         <article>
-            <span>computer-architecture-register.html</span>
+            <span>math-set-groups.html</span>
 
             <div>
                 <p>
                     <span>
                         <br>
-                        * created: 2025-06-19T18:19
+                        * created: 2025-11-18T16:21
                         <br>
                          
-                        * modified: 2025-07-14T09:11
+                        * modified: 2025-11-18T16:26
                         <br>
                         
                     </span>
                 </p>
 
                 <span>title</span><br>
-                <p>Register</p>
+                <p>Groups</p>
 
                 <span>description</span><br>
-                <p>Register are  small memory units are commonly found inside the CPU.</p>
+                <p>Groups are a set of numbers which are linked by an operation.</p>
 
+                
+                <span>related notes</span><br>
+                <ul>
+                    
+                    <li>
+                        <a href="./math-set-properties.html#Closed">math-set-properties.html#Closed</a>
+                    </li>
+                    
+                    <li>
+                        <a href="./math-set.html">math-set.html</a>
+                    </li>
+                    
+                </ul>
                 
             </div>
 
-            <h1>The faculty of the CPU by which data or information is encoded, stored, and retrieved when needed.</h1>
-<p>A register can store and output values. This is commonly done through 3 channel: Input, Select, and Write. These channel are connected to a each individual memory cell inside the register.</p>
-<p>Each cell has it's own input channel, but the select and write channel are linked together; this is done because you generally want to write a entire 8 bit section of cells (one register) to represent some information.</p>
-<h2>8-Bit Register</h2>
-<p>Each memory cell can store 1 bit and consist of 3 separat channels (Read, Write and Select), which can be used to either set, reset or output a value.
-<img src="./media/Drawing%202025-06-19%2018.53.32.excalidraw.svg" alt="" /></p>
-<h3>Simple Memory Cell</h3>
-<p><img src="./media/Drawing%202025-06-19%2019.00.47.excalidraw.svg" alt="Drawing 2025-06-19 19.00.47.excalidraw" /></p>
-<table>
-<thead>
-<tr>
-<th>Signal</th>
-<th>Meaning</th>
-<th>Value 0 Effect</th>
-<th>Value 1 Effect</th>
-<th>Analogy</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>input</code></td>
-<td>New value for memory</td>
-<td>Not stored unless written</td>
-<td>Candidate for storage</td>
-<td>A draft message</td>
-</tr>
-<tr>
-<td><code>write</code></td>
-<td>Control whether to update</td>
-<td>Keep old memory</td>
-<td>Overwrite with <code>input</code></td>
-<td>Hitting “send” or not</td>
-</tr>
-<tr>
-<td><code>select</code></td>
-<td>Control visibility/output</td>
-<td>Hide memory</td>
-<td>Output memory</td>
-<td>Turning light switch on/off</td>
-</tr>
-</tbody>
-</table>
-<h4>RS-Flip-Flop</h4>
-<p><img src="./media/Drawing%202025-06-19%2021.16.31.excalidraw.svg" alt="" /></p>
+            <h1>Groups</h1>
+<p>Let <span data-math-style="inline">G</span> be a non empty set. A function
+<span data-math-style="display">
+\circ : G \times G \to G
+</span>
+is called a link on <span data-math-style="inline">G</span>.
+The pair <span data-math-style="inline">(G, \circ)</span> is called groupoid.</p>
+<p>A function <span data-math-style="inline">\circ</span> is a link, if it is <a href="math-set-properties.html#Closed" data-wikilink="true">closed</a>.</p>
+<blockquote>
+<p><span data-math-style="inline">(G, \circ)</span> is commutative if <span data-math-style="inline">\forall a,b \in G: a \circ b = b \circ a</span>
+The addition group <span data-math-style="inline">(\mathbb{N}_{0},+)</span> is a commutative (Albesch') groupoid.
+The subtraction group <span data-math-style="inline">(\mathbb{N}_{0},+)</span> is not a groupoid, because it's not closed. (<span data-math-style="inline">2-7 \notin \mathbb{N}_{0}</span>)</p>
+</blockquote>
+<h2>Semigroups, Monoids, Groups</h2>
+<p>If <span data-math-style="inline">\forall a,b,c \in (G, \circ): a \circ (b \circ c) = (a \circ b) \circ c</span>, then is <span data-math-style="inline">\circ</span> <strong>associative</strong>, and <span data-math-style="inline">(G, \circ)</span> a <strong>semigroup</strong>.</p>
+<p>If the semigroup <span data-math-style="inline">G</span> contains an <span data-math-style="inline">e</span> such that <span data-math-style="inline">a \in G: e\circ a = a \circ e = a</span>, then is <span data-math-style="inline">e</span> the <strong>neutral element</strong>, and <span data-math-style="inline">G</span> a <strong>Monoid</strong></p>
+<p>If <span data-math-style="inline">\forall a \in G, \exists a^{-1} \in G: a \circ a^{-1}=e</span> with <span data-math-style="inline">G</span> being a monoid, then <span data-math-style="inline">G</span> is a <strong>Group</strong>.</p>
+<h2>Finite Group</h2>
+<p>A groupoid <span data-math-style="inline">(G_{n}, \circ)</span> is called finite, if:</p>
+<ol>
+<li>the set <span data-math-style="inline">G</span> is finite</li>
+<li><span data-math-style="inline">\circ</span> is a commutative group operation</li>
+</ol>
+<h2>Cyclical Groups</h2>
+<p>Let <span data-math-style="inline">(G, \circ)</span> be a group with <span data-math-style="inline">e</span> being the neutral element.
+For <span data-math-style="inline">x\in G</span> and <span data-math-style="inline">z\in \mathbb{Z}</span> we define:
+<span data-math-style="display">
+x^{z} = 
+\left\{ 
+\begin{array}{ll}
+x \circ (x^{z-1}) &amp; \text{if } z &gt; 0 \\
+e &amp; \text{if } z = 0 \\
+x^{-1} \circ (x^{z+1}) &amp; \text{if } z &lt; 0 \\
+\end{array}
+\right.
+</span></p>
+<p><span data-math-style="inline">G</span> is a cyclical group, if <span data-math-style="inline">\exists a \in G: G = \{a^{z}| z \in \mathbb{Z} \}</span>. Such an <span data-math-style="inline">a \in G</span> is called <strong>Producer</strong> or <strong>Generator</strong> of <span data-math-style="inline">G</span>.</p>
+<h3>Order</h3>
+<p>Let <span data-math-style="inline">(G, \circ)</span> be a group with <span data-math-style="inline">e</span> being the neutral element.
+<span data-math-style="inline">a\in G</span> is the smallest positive number <span data-math-style="inline">z</span> for which the following holds:</p>
+<p><span data-math-style="display">
+a^{z} = \underbrace{a \circ a \circ \dots \circ}_{z \text{ times}} = e
+</span></p>
+<blockquote>
+<p><span data-math-style="inline">\langle {a} \rangle</span> is the <a href="math-set.html" data-wikilink="true">set</a> <span data-math-style="inline">\{a^{z} | z \in \mathbb{Z}\}</span> and is called <strong>Subgroup</strong>.
+<span data-math-style="inline">|\langle {a} \rangle|</span> is the <strong>Order</strong> of the element <span data-math-style="inline">a</span>.</p>
+</blockquote>
+<h2>Related Notes</h2>
+<ul>
+<li></li>
+</ul>
 
         </article>
 
